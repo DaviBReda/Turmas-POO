@@ -31,6 +31,7 @@ public class Sistema {
                 aux = new Aluno(b);
                 this.Alunos.add(aux);
             }
+            b.close();
         }
         catch(IOException e){
             e.printStackTrace();
@@ -49,6 +50,7 @@ public class Sistema {
                 aux = new Professor(b);
                 this.Professores.add(aux);
             }
+            b.close();
         }
         catch(IOException e){
             e.printStackTrace();
@@ -71,6 +73,7 @@ public class Sistema {
                 this.Turmas.add(aux);
             }
             Collections.sort(this.Turmas);
+            b.close();
         }
         catch(IOException e){
             e.printStackTrace();
@@ -103,7 +106,7 @@ public class Sistema {
                     b.write("- "+turma.Lista_Alunos.get(i).Aluno.Nome+" ("+turma.Lista_Alunos.get(i).Aluno.Matricula+"): "+turma.Lista_Alunos.get(i).Nota+"\n");
                 }
             }
-            
+            b.close();
         }
         catch(IOException e){
             System.out.println("Erro ao escrever arquivo resultado.txt");
