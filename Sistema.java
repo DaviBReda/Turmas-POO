@@ -92,13 +92,21 @@ public class Sistema {
     
     public void exibirNotas(){
         int count;
-        System.out.println("");
-        for (Turma turma : this.Turmas){
-            System.out.println(turma.Nome_Disciplina+" ("+turma.Ano+"/"+turma.Semestre+")"+ " - "+turma.Responsavel.Nome);
-            count = turma.Lista_Alunos.size();
-            for (int i = 0; i<count; i++){
-                System.out.println("- "+turma.Lista_Alunos.get(i).Aluno.Nome+" ("+turma.Lista_Alunos.get(i).Aluno.Matricula+"): "+turma.Lista_Alunos.get(i).Nota);
+        try{
+            FileWriter f = new FileWriter("resultado.txt");
+            BufferedWriter b = new BufferedWriter(f);
+            
+            for (Turma turma : this.Turmas){
+                b.write(turma.Nome_Disciplina+" ("+turma.Ano+"/"+turma.Semestre+")"+ " - "+turma.Responsavel.Nome+"\n");
+                count = turma.Lista_Alunos.size();
+                for (int i = 0; i<count; i++){
+                    b.write("- "+turma.Lista_Alunos.get(i).Aluno.Nome+" ("+turma.Lista_Alunos.get(i).Aluno.Matricula+"): "+turma.Lista_Alunos.get(i).Nota+"\n");
+                }
             }
+            
+        }
+        catch(IOException e){
+            System.out.println("Erro ao escrever arquivo resultado.txt");
         }
     }
 }
