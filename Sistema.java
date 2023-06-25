@@ -72,7 +72,7 @@ public class Sistema {
                 aux.popularTurma(this.procuraProfessor(cpf), this.Alunos, b);
                 this.Turmas.add(aux);
             }
-            Collections.sort(this.Turmas);
+            Collections.sort(this.Turmas, Collections.reverseOrder());
             b.close();
         }
         catch(IOException e){
