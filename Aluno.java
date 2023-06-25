@@ -20,6 +20,6 @@ public class Aluno extends Pessoa implements Comparable<Aluno>{
         if (this.Nome.compareTo(aluno.Nome) == 0){
             return this.Cpf.compareTo(aluno.Cpf);
         }
-        return this.Nome.compareTo(aluno.Nome);
+        return (this.Nome.compareTo(aluno.Nome)*-1);
     }
 }
